@@ -66,12 +66,12 @@ class BootstrapSelectServiceProvider extends ServiceProvider
         // Publishing the views.
         $this->publishes([
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/kluseg'),
-        ], 'BootstrapSelect components');
+        ], 'laravel-boostrap-select-components');
 
         // Publishing assets.
         $this->publishes([
             __DIR__.'/../resources/assets' => resource_path('assets/vendor/kluseg'),
-        ], 'BootstrapSelect assets');
+        ], 'laravel-boostrap-select-assets');
 
         // Publishing the translation files.
         /*$this->publishes([

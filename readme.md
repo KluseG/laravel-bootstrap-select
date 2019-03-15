@@ -12,10 +12,118 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ``` bash
-$ composer require kluseg/bootstrapselect
+$ composer require kluseg/laravel-bootstrap-select
 ```
 
 ## Usage
+
+```bash
+$ php artisan vendor:publish --tag=laravel-bootstrap-select-assets
+```
+
+In webpack.mix.js
+
+```javascript
+mix.js('resources/assets/vendor/kluseg/js/multiple-select.js', 'public/js')
+   .sass('resources/assets/vendor/kluseg/sass/multiple-select.scss', 'public/css')
+```
+
+In your views
+
+```php
+<div class="form-group">
+    <label>I am multiple select!</label>
+    @component('bs::multiple-select-sync', [
+        'sm' => true,
+        'model' => null,
+        'items' => [
+            [
+                'name' => 'input_name_1',
+                'value' => 'input_value_1',
+                'label' => 'Label 1'
+            ],
+            [
+                'name' => 'input_name_2',
+                'value' => 'input_value_2',
+                'label' => 'Label 2'
+            ]
+        ]
+    ])
+        Please select one
+    @endcomponent
+</div>
+<div class="form-group">
+    <label>I am single select!</label>
+    @component('bs::multiple-select-sync', [
+        'sm' => true,
+        'model' => null,
+        'items' => [
+            [
+                'group' => 'first_group',
+                'label' => 'I am single select!',
+                'unique' => true,
+                'items' => [
+                    [
+                        'name' => 'input_name_1',
+                        'value' => 'input_value_1',
+                        'label' => 'Label 1'
+                    ],
+                    [
+                        'name' => 'input_name_2',
+                        'value' => 'input_value_2',
+                        'label' => 'Label 2'
+                    ]
+                ]
+            ],
+        ]
+    ])
+        Please select one
+    @endcomponent
+</div>
+<div class="form-group">
+    <label>I am everything-in-one select!</label>
+    @component('bs::multiple-select-sync', [
+        'items' => [
+            [
+                'group' => 'first_group',
+                'label' => 'I am unique group!',
+                'unique' => true,
+                'items' => [
+                    [
+                        'name' => 'input_name_1',
+                        'value' => 'input_value_1',
+                        'label' => 'Label 1'
+                    ],
+                    [
+                        'name' => 'input_name_2',
+                        'value' => 'input_value_2',
+                        'label' => 'Label 2'
+                    ]
+                ]
+            ],
+            [
+                'group' => 'second_group',
+                'label' => 'I am not an unique group!',
+                'unique' => false,
+                'items' => [
+                    [
+                        'name' => 'input_name_1',
+                        'value' => 'input_value_1',
+                        'label' => 'Label 1'
+                    ],
+                    [
+                        'name' => 'input_name_2',
+                        'value' => 'input_value_2',
+                        'label' => 'Label 2'
+                    ]
+                ]
+            ],
+        ]
+    ])
+        Please select one
+    @endcomponent
+</div>
+```
 
 ## Change log
 

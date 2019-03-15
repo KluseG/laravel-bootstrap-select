@@ -1,5 +1,5 @@
 {
-    "name": "kluseg/bootstrapselect",
+    "name": "kluseg/laravel-bootstrap-select",
     "description": "Set of selects utilizing bootstrap's 4 dropdowns paired with Laravel components",
     "license": "MIT",
     "authors": [
